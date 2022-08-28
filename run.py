@@ -14,19 +14,21 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('freds-pizza')
 
+
+
 pizza_menu = {
-    "1": "Margherita",
-    "2": "BBQ Chicken",
-    "3": "Pepperoni",
-    "4": "Hawaiian",
-    "5": "Veggie",
-    "6": "Meat Lover",
+    "1": {"name":"Margherita", "message":"lovely"},
+    "2": {"name":"BBQ Chicken", "message":"amazing"},
+    "3": {"name":"Pepperoni", "message":"scrumptious"},
+    "4": {"name":"Hawaiian", "message":"delicious"},
+    "5": {"name":"Veggie", "message":"tasty"},
+    "6": {"name":"Meat Lover", "message":"unreal"},
 }
 
 size_price = {
-    "1": "Small - 9 INCH - £5",
-    "2": "Medium - 11 INCH - £8",
-    "3": "Large - 13 INCH - £12",
+    "S": {"size":"9 INCH", "price": 5, "label": "small"},
+    "M": {"size":"11 INCH", "price": 8, "label": "medium"},
+    "L": {"size":"13 INCH", "price": 11, "label": "large"},
 }
 
 def welcome():
@@ -42,7 +44,7 @@ def welcome():
         if(user_choice == "Y" or user_choice == "y"):
             print("Lets get you the menu...\n")
             for index, pizza in pizza_menu.items():
-                    print(index, pizza)
+                    print(index, pizza["name"])
             break
         elif(user_choice == "N" or user_choice == "n"):
                 print("Hopefully see you next time!")
@@ -52,46 +54,74 @@ def welcome():
             print("Make sure you either enetered Y or N\n")
             return welcome()
 
-def pizza_select():
+def select_pizza():
     """
     Function to select the pizza
     """
     while True:
         print(
-            "Please pick the corresponding number"
-            "to the pizza you wish to order.\n"
+            "\nPlease pick the corresponding number"
+            " to the pizza you wish to order.\n"
             "If you've changed your mind, dont worry"
-            "press E to leave the shop.\n"
+            " press E to leave the shop.\n"
         )
-    select_pizza = input("Enter number or E: ")
-    select_pizza = select_pizza.strip()
-    if(select_pizza == "1"):
-        print("You have chosen our delicious Margherita")
-        break
-    elif(select_pizza == "2"):
-        print("You have chosen our lovely BBQ Chicken")
-        break
-    elif(select_pizza == "3"):
-        print("You have chosen our amazing Pepperoni")
-        break
-    elif(select_pizza == "4"):
-        print("You have chosen our award winning Hawaiian")
-        break
-    elif(select_pizza == "5"):
-        print("You have chosen our stupendous Veggie")
-        break
-    elif(select_pizza == "6"):
-        print("You have chosen our unreal Meat Lover")
-        break
-    elif(select_pizza == "E" or select_pizza == "e"):
-        print("Hope to see you another time!")
-        sys.exit()
-        break
-    else:
-        print("Sorry that was an invalid input")
-        print("Please enter a number from 1-6 of E")
+        user_input = input("Enter number: ")
+        user_input = user_input.strip().lower()
+        if(user_input == "e"):
+            print("We hope to see you another day!")
+            sys.exit()
+            break
+        elif(user_input in pizza_menu):
+            print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"])
+            break
+        else:
+            print(
+                "Sorry this is invalid,"
+                "Please enter number between 1-6 or E"
+            )
+        
+    return user_input
 
-    return select_book
 
-welcome()
-select_pizza()
+
+def user_name():
+    """
+    Function collect user name
+    """
+    while True:
+        print("Now... lets take your details")
+        name = input("Enter your name: ")
+        if(name.isdigit()):
+            print(
+                "Please make sure you entered your"
+                "name correctly"
+            )
+            print("Try again")
+        else:
+            print(f"Hello {name}")
+            return name
+
+def user_number():
+    """
+    Function collect user number 
+    """
+    while True:
+        print("Now... lets take your number")
+        number = input("Enter your 11 digit number: ")
+        if(number.isalpha() or len(number) != 11 ):
+            print(
+                "Please make sure you entered"
+                " your number correctly"
+            )
+            print("Try again")
+        else:
+            print(f"We will use {number} to contact you if any problems")
+            return number
+
+def main():
+    welcome()
+    pizza = select_pizza()
+    name = user_name()
+    number = user_number()
+
+main()
