@@ -27,9 +27,9 @@ pizza_menu = {
 }
 
 size_price = {
-    "S": {"size":"9 INCH", "price": 5, "label": "small"},
-    "M": {"size":"11 INCH", "price": 8, "label": "medium"},
-    "L": {"size":"13 INCH", "price": 11, "label": "large"},
+    "S": {"pizza_size":"9 INCH", "price": 5, "label": "small"},
+    "M": {"pizza_size":"11 INCH", "price": 8, "label": "medium"},
+    "L": {"pizza_size":"13 INCH", "price": 11, "label": "large"},
 }
 
 def welcome():
@@ -88,7 +88,7 @@ def select_size():
     Function to select the size
     """
     for index, size in size_price.items():
-                    print(index, size["label"])
+                    print(index, size["label"], size["pizza_size"])
     while True:
         print(
             "\nPlease select what size pizza you want.\n"
@@ -102,15 +102,14 @@ def select_size():
             sys.exit()
             break
         elif(user_size_input in size_price):
-            print("You have chosen a", size_price[user_size_input]["label"], size_price[user_size_input]["size"], "pizza\n")
+            print("You have chosen a size", size_price[user_size_input]["label"], size_price[user_size_input]["pizza_size"], "pizza\n")
             break
         else:
             print(
                 "Sorry this is invalid\n"
-                "Please enter either S or M OR L\n"
-                "Or press E to leave the shop\n"
             )
-        return size_price[user_size_input]
+
+    return size_price[user_size_input]
 
 def user_name():
     """
@@ -160,7 +159,7 @@ def main():
     size = select_size()
     name = user_name()
     number = user_number(name)
-    row = [name, number, pizza["name"]]
+    row = [name, number, pizza["name"], size["label"]]
     update_spreadsheet(row)
 
 
