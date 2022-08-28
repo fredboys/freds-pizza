@@ -37,7 +37,7 @@ def welcome():
     while True:
         print("Hola, Welcome to Fred's Pizzas!")
         print("Would you like to place and order? [Y]es or [N]o")
-        user_choice = input("Enter :")
+        user_choice = input("Enter: ")
         user_choice = user_choice.strip()
         if(user_choice == "Y" or user_choice == "y"):
             print("Lets get you the menu...\n")
@@ -52,4 +52,46 @@ def welcome():
             print("Make sure you either enetered Y or N\n")
             return welcome()
 
+def pizza_select():
+    """
+    Function to select the pizza
+    """
+    while True:
+        print(
+            "Please pick the corresponding number"
+            "to the pizza you wish to order.\n"
+            "If you've changed your mind, dont worry"
+            "press E to leave the shop.\n"
+        )
+    select_pizza = input("Enter number or E: ")
+    select_pizza = select_pizza.strip()
+    if(select_pizza == "1"):
+        print("You have chosen our delicious Margherita")
+        break
+    elif(select_pizza == "2"):
+        print("You have chosen our lovely BBQ Chicken")
+        break
+    elif(select_pizza == "3"):
+        print("You have chosen our amazing Pepperoni")
+        break
+    elif(select_pizza == "4"):
+        print("You have chosen our award winning Hawaiian")
+        break
+    elif(select_pizza == "5"):
+        print("You have chosen our stupendous Veggie")
+        break
+    elif(select_pizza == "6"):
+        print("You have chosen our unreal Meat Lover")
+        break
+    elif(select_pizza == "E" or select_pizza == "e"):
+        print("Hope to see you another time!")
+        sys.exit()
+        break
+    else:
+        print("Sorry that was an invalid input")
+        print("Please enter a number from 1-6 of E")
+
+    return select_book
+
 welcome()
+select_pizza()
