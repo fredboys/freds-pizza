@@ -73,7 +73,7 @@ def select_pizza():
             sys.exit()
             break
         elif(user_input in pizza_menu):
-            print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"])
+            print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
             break
         else:
             print(
@@ -87,7 +87,7 @@ def select_pizza():
 
 def user_name():
     """
-    Function collect user name
+    Function to collect user name
     """
     while True:
         print("Now... lets take your details")
@@ -99,12 +99,12 @@ def user_name():
             )
             print("Try again")
         else:
-            print(f"Hello {name}")
+            print(f"\nHello {name} we hope you enjoy!\n")
             return name
 
 def user_number():
     """
-    Function collect user number 
+    Function to collect user number 
     """
     while True:
         print("Now... lets take your number")
@@ -116,7 +116,7 @@ def user_number():
             )
             print("Try again")
         else:
-            print(f"We will use {number} to contact you if any problems")
+            print(f"\nWe will use {number} to contact you if any problems\n")
             return number
 
 def update_spreadsheet(row):
