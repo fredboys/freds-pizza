@@ -115,6 +115,19 @@ def quantity():
     """
     Function to select quantity of pizzas
     """
+    print(
+        "\nHow many pizza's would you like?"
+        "You can pick up to a quantity of 6 pizzas"
+        "Press E to leave the shop.\n"
+    )
+    while True:
+        user_quantity_input = input("Enter quantity:\n ")
+        user_quantity_input = user_quantity_input.strip().lower()
+        if(user_quantity_input == "e")
+            print("We hope to see you soon again!")
+            sys.exit()
+            break
+        elif(user_quantity_input ==)
 
 
 def user_name():
