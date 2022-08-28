@@ -119,7 +119,11 @@ def user_number(name):
 
 def update_spreadsheet(row):
     orders_worksheet.append_row(row)
-    print("Your order has been processed")
+    print("Thank you from Fred's Pizzas")
+    print(
+        "Your order has been processed \n"
+        "and will be ready for collection in 20 minutes!"
+    )
 
 
 
