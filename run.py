@@ -13,6 +13,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('freds-pizza')
+orders_worksheet = SHEET.worksheet("orders")
 
 
 
@@ -80,7 +81,7 @@ def select_pizza():
                 "Please enter number between 1-6 or E"
             )
         
-    return user_input
+    return pizza_menu[user_input]
 
 
 
@@ -118,10 +119,19 @@ def user_number():
             print(f"We will use {number} to contact you if any problems")
             return number
 
+def update_spreadsheet(row):
+    orders_worksheet.append_row(row)
+    print("Your order has been processed")
+
+
+
 def main():
     welcome()
     pizza = select_pizza()
     name = user_name()
     number = user_number()
+    row = [name, number, pizza["name"]]
+    update_spreadsheet(row)
+
 
 main()
