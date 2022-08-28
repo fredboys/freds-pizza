@@ -83,7 +83,34 @@ def select_pizza():
         
     return pizza_menu[user_input]
 
-
+def select_size():
+    """
+    Function to select the size
+    """
+    for index, size in size_price.items():
+                    print(index, size["label"])
+    while True:
+        print(
+            "\nPlease select what size pizza you want.\n"
+            "Enter either S or M OR L\n"
+            "Press E to leave the shop.\n"
+        )
+        user_size_input = input("Enter size: ")
+        user_size_input = user_size_input.strip().upper()
+        if(user_size_input == "E"):
+            print("We hope to see you soon again!")
+            sys.exit()
+            break
+        elif(user_size_input in size_price):
+            print("You have chosen a", size_price[user_size_input]["label"], size_price[user_size_input]["size"], "pizza\n")
+            break
+        else:
+            print(
+                "Sorry this is invalid\n"
+                "Please enter either S or M OR L\n"
+                "Or press E to leave the shop\n"
+            )
+        return size_price[user_size_input]
 
 def user_name():
     """
@@ -130,6 +157,7 @@ def update_spreadsheet(row):
 def main():
     welcome()
     pizza = select_pizza()
+    size = select_size()
     name = user_name()
     number = user_number(name)
     row = [name, number, pizza["name"]]
