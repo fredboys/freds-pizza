@@ -99,15 +99,13 @@ def user_name():
             )
             print("Try again")
         else:
-            print(f"\nHello {name} we hope you enjoy!\n")
             return name
 
-def user_number():
+def user_number(name):
     """
     Function to collect user number 
     """
     while True:
-        print("Now... lets take your number")
         number = input("Enter your 11 digit number: ")
         if(number.isalpha() or len(number) != 11 ):
             print(
@@ -116,7 +114,7 @@ def user_number():
             )
             print("Try again")
         else:
-            print(f"\nWe will use {number} to contact you if any problems\n")
+            print("\nThank you", name, "we will use", number, "to contact you if any problems\n")
             return number
 
 def update_spreadsheet(row):
@@ -129,7 +127,7 @@ def main():
     welcome()
     pizza = select_pizza()
     name = user_name()
-    number = user_number()
+    number = user_number(name)
     row = [name, number, pizza["name"]]
     update_spreadsheet(row)
 
