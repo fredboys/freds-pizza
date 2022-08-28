@@ -88,7 +88,7 @@ def select_size():
     Function to select the size
     """
     for index, size in size_price.items():
-                    print(index, size["label"], size["pizza_size"])
+                    print(index, "-", size["label"], "-",size["pizza_size"], "-","£",size["price"])
     while True:
         print(
             "\nPlease select what size pizza you want.\n"
@@ -110,6 +110,12 @@ def select_size():
             )
 
     return size_price[user_size_input]
+
+def quantity():
+    """
+    Function to select quantity of pizzas
+    """
+
 
 def user_name():
     """
@@ -144,6 +150,9 @@ def user_number(name):
             return number
 
 def update_spreadsheet(row):
+    """
+    Function to update google worksheet with data obtained
+    """
     orders_worksheet.append_row(row)
     print("Thank you from Fred's Pizzas")
     print(
