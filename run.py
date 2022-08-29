@@ -172,7 +172,7 @@ def user_name():
         name = input("Enter your name: ")
         if(name.isdigit()):
             print(
-                "Please make sure you entered your"
+                "Please make sure you entered your "
                 "name correctly"
             )
             print("Try again")
