@@ -143,7 +143,7 @@ def add_dip():
     """
     while True:
         print("\nWould you like to add a garlic dip for £1?")
-        print("[Y]es or [N]")
+        print("[Y]es or [N]o")
         print("Or press E to leave the shop\n")
         user_dip_input = input("Enter: ")
         user_dip_input = user_dip_input.strip().upper()
