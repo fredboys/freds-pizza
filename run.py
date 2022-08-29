@@ -169,15 +169,17 @@ def user_name():
     """
     while True:
         print("\nNow... lets take your details")
-        name = input("Enter your name: ")
-        if(name.isdigit()):
+        name = input("Enter your name: ").title()
+        if(name.isalpha()):
+            break
+        else:
             print(
                 "Please make sure you entered your "
                 "name correctly"
             )
             print("Try again")
-        else:
-            return name
+
+    return name
 
 def user_number(name):
     """
@@ -185,15 +187,17 @@ def user_number(name):
     """
     while True:
         number = input("Enter your 11 digit mobile number: ")
-        if(number.isalpha() or len(number) != 11 ):
-            print(
-                "Please make sure you entered"
-                " your number correctly"
-            )
-            print("Try again")
-        else:
+        if(number.isdigit() and len(number) == 11 ):
             print("\nThank you", name, "we will use", number, "to contact you if any problems\n")
-            return number
+            break
+        else:
+            print(
+                "\nPlease make sure you entered your "
+                "number correctly"
+            )
+            print("Try again\n")
+
+    return number
 
 def update_spreadsheet(row):
     """
