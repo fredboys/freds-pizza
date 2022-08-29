@@ -184,7 +184,7 @@ def user_number(name):
     Function to collect user number 
     """
     while True:
-        number = input("Enter your 11 digit number: ")
+        number = input("Enter your 11 digit mobile number: ")
         if(number.isalpha() or len(number) != 11 ):
             print(
                 "Please make sure you entered"
