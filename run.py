@@ -142,25 +142,26 @@ def add_dip():
     Function allows user to add garlic dip to their order
     """
     while True:
-        print("Would you like to add a garlic dip for £1?")
+        print("\nWould you like to add a garlic dip for £1?")
         print("[Y]es or [N]")
-        print("Or press E to leave the shop")
-        user_dip_input = input("Enter:")
+        print("Or press E to leave the shop\n")
+        user_dip_input = input("Enter: ")
         user_dip_input = user_dip_input.strip().upper()
         if(user_dip_input == "Y"):
-            print("Lets add that to your order....!")
+            print("\nLets add that to your order....!")
             break
         elif(user_dip_input == "N"):
-            print("No problem!")
+            print("\nNo problem!")
             break
         elif(user_dip_input == "E"):
-            ("So close to the best pizza in town. See you soon!")
+            ("\nSo close to the best pizza in town. See you soon!")
             sys.exit()
+            break
         else:
             print("That not quite right")
             print("Make sure you either enetered Y or N\n")
 
-    return user_dip_input()
+    return user_dip_input
 
 def user_name():
     """
@@ -212,9 +213,10 @@ def main():
     pizza = select_pizza()
     size = select_size()
     quantity = number_of_pizzas()
+    dip = add_dip()
     name = user_name()
     number = user_number(name)
-    row = [name, number, pizza["name"], size["label"], quantity]
+    row = [name, number, pizza["name"], size["label"], quantity, dip]
     update_spreadsheet(row)
 
 
