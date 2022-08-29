@@ -111,31 +111,63 @@ def select_size():
 
     return size_price[user_size_input]
 
-def quantity():
+def number_of_pizzas():
     """
     Function to select quantity of pizzas
     """
     print(
-        "\nHow many pizza's would you like?"
-        "You can pick up to a quantity of 6 pizzas"
+        "How many pizza's would you like?\n"
+        "You can pick up to a quantity of 6 pizzas.\n"
         "Press E to leave the shop.\n"
     )
     while True:
         user_quantity_input = input("Enter quantity:\n ")
         user_quantity_input = user_quantity_input.strip().lower()
-        if(user_quantity_input == "e")
+        if(user_quantity_input == "e"):
             print("We hope to see you soon again!")
             sys.exit()
             break
-        elif(user_quantity_input ==)
+        elif(user_quantity_input >= str(1) and user_quantity_input <= str(6)):
+            print("You have selected a quantity of", user_quantity_input)
+            break
+        else:
+            print(
+                "Sorry this is invalid\n"
+            )
+            
+    return user_quantity_input
 
+def add_dip():
+    """
+    Function allows user to add garlic dip to their order
+    """
+    while True:
+        print("Would you like to add a garlic dip for £1?")
+        print("[Y]es or [N]")
+        print("Or press E to leave the shop")
+        user_dip_input = input("Enter:")
+        user_dip_input = user_dip_input.strip().upper()
+        if(user_dip_input == "Y"):
+            print("Lets add that to your order....!")
+            break
+        elif(user_dip_input == "N"):
+            print("No problem!")
+            break
+        elif(user_dip_input == "E"):
+            ("So close to the best pizza in town. See you soon!")
+            sys.exit()
+        else:
+            print("That not quite right")
+            print("Make sure you either enetered Y or N\n")
+
+    return user_dip_input()
 
 def user_name():
     """
     Function to collect user name
     """
     while True:
-        print("Now... lets take your details")
+        print("\nNow... lets take your details")
         name = input("Enter your name: ")
         if(name.isdigit()):
             print(
@@ -179,9 +211,10 @@ def main():
     welcome()
     pizza = select_pizza()
     size = select_size()
+    quantity = number_of_pizzas()
     name = user_name()
     number = user_number(name)
-    row = [name, number, pizza["name"], size["label"]]
+    row = [name, number, pizza["name"], size["label"], quantity]
     update_spreadsheet(row)
 
 
