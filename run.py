@@ -27,9 +27,9 @@ pizza_menu = {
 }
 
 size_price = {
-    "S": {"pizza_size":"9 INCH", "price": 5, "label": "small"},
-    "M": {"pizza_size":"11 INCH", "price": 8, "label": "medium"},
-    "L": {"pizza_size":"13 INCH", "price": 11, "label": "large"},
+    "S": {"pizza_size":"9 INCH", "price": 5, "label": "Small"},
+    "M": {"pizza_size":"11 INCH", "price": 8, "label": "Medium"},
+    "L": {"pizza_size":"13 INCH", "price": 11, "label": "Large"},
 }
 
 def welcome():
@@ -39,11 +39,11 @@ def welcome():
     """
     while True:
         print("Hola, Welcome to Fred's Pizzas!")
-        print("Would you like to place and order? [Y]es or [N]o")
+        print("Would you like to place and order? [Y]es or [N]o\n")
         user_choice = input("Enter: ")
         user_choice = user_choice.strip()
         if(user_choice == "Y" or user_choice == "y"):
-            print("Lets get you the menu...\n")
+            print("\nLets get you the menu...")
             for index, pizza in pizza_menu.items():
                     print(index, pizza["name"])
             break
@@ -61,10 +61,10 @@ def select_pizza():
     """
     while True:
         print(
-            "\nPlease pick the corresponding number"
-            " to the pizza you wish to order.\n"
-            "If you've changed your mind, dont worry"
-            " press E to leave the shop.\n"
+            "\nPlease pick the corresponding number\n"
+            "to the pizza you wish to order.\n"
+            "If you've changed your mind,\n"
+            "press E to leave the shop.\n"
         )
         user_input = input("Enter number: ")
         user_input = user_input.strip().lower()
@@ -121,7 +121,7 @@ def number_of_pizzas():
         "Press E to leave the shop.\n"
     )
     while True:
-        user_quantity_input = input("Enter quantity:\n ")
+        user_quantity_input = input("Enter quantity: \n")
         user_quantity_input = user_quantity_input.strip().lower()
         if(user_quantity_input == "e"):
             print("We hope to see you soon again!")
@@ -148,7 +148,7 @@ def add_dip():
         user_dip_input = input("Enter: ")
         user_dip_input = user_dip_input.strip().upper()
         if(user_dip_input == "Y"):
-            print("\nLets add that to your order....!")
+            print("\nLets add that to your order!")
             break
         elif(user_dip_input == "N"):
             print("\nNo problem!")
@@ -162,6 +162,16 @@ def add_dip():
             print("Make sure you either enetered Y or N\n")
 
     return user_dip_input
+
+def total_cost(quantity, size, pizza, dip):
+    """
+    Function to calculate cost and confirm order
+    """
+    print("Your order is....\n")
+    if(dip == "y" or dip == "Y"):
+        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "with dip")
+    else:
+        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"])
 
 def user_name():
     """
@@ -188,7 +198,7 @@ def user_number(name):
     while True:
         number = input("Enter your 11 digit mobile number: ")
         if(number.isdigit() and len(number) == 11 ):
-            print("\nThank you", name, "we will use", number, "to contact you if any problems\n")
+            print("\nThank you", name, "we will use", number, "to contact you \nif any problems\n")
             break
         else:
             print(
@@ -218,6 +228,7 @@ def main():
     size = select_size()
     quantity = number_of_pizzas()
     dip = add_dip()
+    cost = total_cost(quantity, size, pizza, dip)
     name = user_name()
     number = user_number(name)
     row = [name, number, pizza["name"], size["label"], quantity, dip]
