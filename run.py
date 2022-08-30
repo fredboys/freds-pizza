@@ -51,7 +51,7 @@ def welcome():
                 print("Hopefully see you next time!")
                 sys.exit()
         else:
-            print("That not quite right")
+            print("That's not quite right")
             print("Make sure you either enetered Y or N\n")
             return welcome()
 
@@ -163,7 +163,7 @@ def add_dip():
 
     return user_dip_input
 
-def total_cost(quantity, size, pizza, dip):
+def total_order(quantity, size, pizza, dip):
     """
     Function to calculate cost and confirm order
     """
@@ -220,15 +220,13 @@ def update_spreadsheet(row):
         "and will be ready for collection in 20 minutes!"
     )
 
-
-
 def main():
     welcome()
     pizza = select_pizza()
     size = select_size()
     quantity = number_of_pizzas()
     dip = add_dip()
-    cost = total_cost(quantity, size, pizza, dip)
+    cost = total_order(quantity, size, pizza, dip)
     name = user_name()
     number = user_number(name)
     row = [name, number, pizza["name"], size["label"], quantity, dip]
