@@ -265,8 +265,6 @@ def recipt(order):
     print("Here is your recipt")
     print("\n123 Fred's Pizzas\nBig street\nLondon\n")
     print(order)
-    
-
 
 def update_spreadsheet(row):
     """
