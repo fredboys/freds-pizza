@@ -189,10 +189,10 @@ def total_cost(size, quantity, dip):
     """
     if(dip == "y" or dip == "Y"):
         total = size["price"] * int(quantity) + 1
-        print("Total cost: ", total)
+        print("Total cost: £", total)
     else:
         total = size["price"] * int(quantity)
-        print("Total cost: ", total)
+        print("Total cost: £", total)
 
     return total
 
