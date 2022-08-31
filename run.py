@@ -44,8 +44,6 @@ def welcome():
         user_choice = user_choice.strip()
         if(user_choice == "Y" or user_choice == "y"):
             print("\nLets get you the menu...")
-            for index, pizza in pizza_menu.items():
-                    print(index, pizza["name"])
             break
         elif(user_choice == "N" or user_choice == "n"):
                 print("Hopefully see you next time!")
@@ -59,6 +57,8 @@ def select_pizza():
     """
     Function to select the pizza
     """
+    for index, pizza in pizza_menu.items():
+                    print(index, pizza["name"])
     while True:
         print(
             "\nPlease pick the corresponding number\n"
@@ -168,39 +168,35 @@ def total_order(quantity, size, pizza, dip):
     Function to display the order back to the customer
     """
     print("\nYour order is....\n")
-    if(dip == "y" or dip == "Y" and quantity > str(1)):
-        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizzas with dip")
-
-    elif(dip == "n" or dip == "N" and quantity > str(1)):
-        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizzas")
-        
-    elif(dip == "y" or dip == "Y" and quantity == str(1)):
-        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizza with dip")
-        
-    elif(dip == "n" or dip == "n" and quantity == str(1)):
-        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizza")
-        
+    result = quantity + " x " + size["label"] + " " + size["pizza_size"] + " " + pizza["name"]
+    if(quantity == str(1)):
+        result += " pizza"
     else:
-        print("Invalid")
+        result += " pizzas"
+    
+    if(dip.lower() == "y"):
+        result += " with dip"
+        
+    print(result)
+    return result
 
 def total_cost(size, quantity, dip):
     """
     Function to calculate total cost
     """
+    total = size["price"] * int(quantity)
     if(dip == "y" or dip == "Y"):
-        total = size["price"] * int(quantity) + 1
-        print("Total cost: £", total)
-    else:
-        total = size["price"] * int(quantity)
-        print("Total cost: £", total)
-
+        total += 1
+        
+    print("Total cost: £", total)
+    
     return total
 
 def confirm_order():
     """
     Function to confirm order
     """
-    print("\nTo confirm this order please select\n[Y]es or [N]o \n(No will exit the shop)\n")
+    print("\nTo confirm this order please select\n[Y]es or [N]o \n(No will restart the order)\n")
     while True:
         user_confirm = input("Enter: ")
         user_confirm = user_confirm.strip().upper()
@@ -209,7 +205,6 @@ def confirm_order():
             break
         elif(user_confirm == "N"):
             print("\nLets try ordering again...\nRestarting process...")
-            sys.exit()
             break
         else:
             print("That not quite right")
@@ -253,7 +248,7 @@ def user_number(name):
 
     return number
 
-def recipt(order):
+def recipt(order, price):
     """
     Function to generate recipt
     """
@@ -265,6 +260,7 @@ def recipt(order):
     print("Here is your recipt")
     print("\n123 Fred's Pizzas\nBig street\nLondon\n")
     print(order)
+    print("£" + str(price))
 
 def update_spreadsheet(row):
     """
@@ -274,16 +270,19 @@ def update_spreadsheet(row):
 
 def main():
     welcome()
-    pizza = select_pizza()
-    size = select_size()
-    quantity = number_of_pizzas()
-    dip = add_dip()
-    order = total_order(quantity, size, pizza, dip)
-    price = total_cost(size, quantity, dip)
-    confirm_order()
+    while True:
+        pizza = select_pizza()
+        size = select_size()
+        quantity = number_of_pizzas()
+        dip = add_dip()
+        order = total_order(quantity, size, pizza, dip)
+        price = total_cost(size, quantity, dip)
+        is_confirmed = confirm_order()
+        if(is_confirmed.upper() == "Y"):
+            break
     name = user_name()
     number = user_number(name)
-    recipt(order)
+    recipt(order, price)
     row = [name, number, pizza["name"], size["label"], quantity, dip, price]
     update_spreadsheet(row)
 
