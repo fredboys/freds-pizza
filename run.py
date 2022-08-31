@@ -253,16 +253,26 @@ def user_number(name):
 
     return number
 
+def recipt(order):
+    """
+    Function to generate recipt
+    """
+    print(
+        "Thank you from Fred's Pizzas\n"
+        "Your order has been processed \n"
+        "and will be ready for collection in 20 minutes!\n"
+    )
+    print("Here is your recipt")
+    print("\n123 Fred's Pizzas\nBig street\nLondon\n")
+    print(order)
+    
+
+
 def update_spreadsheet(row):
     """
     Function to update google worksheet with data obtained
     """
     orders_worksheet.append_row(row)
-    print("Thank you from Fred's Pizzas")
-    print(
-        "Your order has been processed \n"
-        "and will be ready for collection in 20 minutes!"
-    )
 
 def main():
     welcome()
@@ -275,6 +285,7 @@ def main():
     confirm_order()
     name = user_name()
     number = user_number(name)
+    recipt(order)
     row = [name, number, pizza["name"], size["label"], quantity, dip, price]
     update_spreadsheet(row)
 
