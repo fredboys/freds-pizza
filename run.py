@@ -116,7 +116,7 @@ def number_of_pizzas():
     Function to select quantity of pizzas
     """
     print(
-        "How many pizza's would you like?\n"
+        "How many pizzas would you like?\n"
         "You can pick up to a quantity of 6 pizzas.\n"
         "Press E to leave the shop.\n"
     )
@@ -182,7 +182,19 @@ def total_order(quantity, size, pizza, dip):
         
     else:
         print("Invalid")
-        
+
+def total_cost(size, quantity, dip):
+    """
+    Function to calculate total cost
+    """
+    if(dip == "y" or dip == "Y"):
+        total = size["price"] * int(quantity) + 1
+        print("Total cost: ", total)
+    else:
+        total = size["price"] * int(quantity)
+        print("Total cost: ", total)
+
+    return total
 
 def confirm_order():
     """
@@ -258,11 +270,12 @@ def main():
     size = select_size()
     quantity = number_of_pizzas()
     dip = add_dip()
-    cost = total_order(quantity, size, pizza, dip)
+    order = total_order(quantity, size, pizza, dip)
+    price = total_cost(size, quantity, dip)
     confirm_order()
     name = user_name()
     number = user_number(name)
-    row = [name, number, pizza["name"], size["label"], quantity, dip]
+    row = [name, number, pizza["name"], size["label"], quantity, dip, price]
     update_spreadsheet(row)
 
 
