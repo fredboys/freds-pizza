@@ -165,13 +165,45 @@ def add_dip():
 
 def total_order(quantity, size, pizza, dip):
     """
-    Function to calculate cost and confirm order
+    Function to display the order back to the customer
     """
-    print("Your order is....\n")
-    if(dip == "y" or dip == "Y"):
-        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "with dip")
+    print("\nYour order is....\n")
+    if(dip == "y" or dip == "Y" and quantity > str(1)):
+        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizzas with dip")
+
+    elif(dip == "n" or dip == "N" and quantity > str(1)):
+        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizzas")
+        
+    elif(dip == "y" or dip == "Y" and quantity == str(1)):
+        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizza with dip")
+        
+    elif(dip == "n" or dip == "n" and quantity == str(1)):
+        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"], "pizza")
+        
     else:
-        print(quantity, "x", size["label"], size["pizza_size"], pizza["name"])
+        print("Invalid")
+        
+
+def confirm_order():
+    """
+    Function to confirm order
+    """
+    print("\nTo confirm this order please select\n[Y]es or [N]o \n(No will exit the shop)\n")
+    while True:
+        user_confirm = input("Enter: ")
+        user_confirm = user_confirm.strip().upper()
+        if(user_confirm == "Y"):
+            print("\nConfirmed! ")
+            break
+        elif(user_confirm == "N"):
+            print("\nLets try ordering again...\nRestarting process...")
+            sys.exit()
+            break
+        else:
+            print("That not quite right")
+            print("Make sure you either enetered Y or N\n")
+
+    return user_confirm 
 
 def user_name():
     """
@@ -227,6 +259,7 @@ def main():
     quantity = number_of_pizzas()
     dip = add_dip()
     cost = total_order(quantity, size, pizza, dip)
+    confirm_order()
     name = user_name()
     number = user_number(name)
     row = [name, number, pizza["name"], size["label"], quantity, dip]
