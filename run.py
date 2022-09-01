@@ -1,4 +1,5 @@
 from datetime import datetime
+import uuid
 import sys
 import gspread
 from google.oauth2.service_account import Credentials
@@ -18,18 +19,18 @@ orders_worksheet = SHEET.worksheet("orders")
 
 
 pizza_menu = {
-    "1": {"name":"Margherita", "message":"lovely"},
-    "2": {"name":"BBQ Chicken", "message":"amazing"},
-    "3": {"name":"Pepperoni", "message":"scrumptious"},
-    "4": {"name":"Hawaiian", "message":"delicious"},
-    "5": {"name":"Veggie", "message":"tasty"},
-    "6": {"name":"Meat Lover", "message":"unreal"},
+    "1": {"name": "Margherita", "message": "lovely"},
+    "2": {"name": "BBQ Chicken", "message": "amazing"},
+    "3": {"name": "Pepperoni", "message": "scrumptious"},
+    "4": {"name": "Hawaiian", "message": "delicious"},
+    "5": {"name": "Veggie", "message": "tasty"},
+    "6": {"name": "Meat Lover", "message": "unreal"},
 }
 
 size_price = {
-    "S": {"pizza_size":"9 INCH", "price": 5, "label": "Small"},
-    "M": {"pizza_size":"11 INCH", "price": 8, "label": "Medium"},
-    "L": {"pizza_size":"13 INCH", "price": 11, "label": "Large"},
+    "S": {"pizza_size": "9 INCH", "price": 5, "label": "Small"},
+    "M": {"pizza_size": "11 INCH", "price": 8, "label": "Medium"},
+    "L": {"pizza_size": "13 INCH", "price": 11, "label": "Large"},
 }
 
 def welcome():
@@ -58,7 +59,7 @@ def select_pizza():
     Function to select the pizza
     """
     for index, pizza in pizza_menu.items():
-                    print(index, pizza["name"])
+        print(index, pizza["name"])
     while True:
         print(
             "\nPlease pick the corresponding number\n"
@@ -88,7 +89,7 @@ def select_size():
     Function to select the size
     """
     for index, size in size_price.items():
-                    print(index, "-", size["label"], "-",size["pizza_size"], "-","£",size["price"])
+        print(index, "-", size["label"], "-", size["pizza_size"], "-", "£", size["price"])
     while True:
         print(
             "\nPlease select what size pizza you want.\n"
@@ -248,7 +249,7 @@ def user_number(name):
 
     return number
 
-def recipt(order, price):
+def receipt(order, price):
     """
     Function to generate recipt
     """
@@ -257,10 +258,18 @@ def recipt(order, price):
         "Your order has been processed \n"
         "and will be ready for collection in 20 minutes!\n"
     )
-    print("Here is your recipt")
+    print("Here is your receipt")
     print("\n123 Fred's Pizzas\nBig street\nLondon\n")
+    id = uuid.uuid4()
+    print("Order #")
+    print(id)
     print(order)
     print("£" + str(price))
+    now = datetime.now()
+    time = now.strftime("%H:%M:%S\n")
+    print(time)
+
+    return {"id": id, "time": time}
 
 def update_spreadsheet(row):
     """
@@ -282,8 +291,8 @@ def main():
             break
     name = user_name()
     number = user_number(name)
-    recipt(order, price)
-    row = [name, number, pizza["name"], size["label"], quantity, dip, price]
+    receipt_result = receipt(order, price)
+    row = [name, number, pizza["name"], size["label"], quantity, dip, price, receipt_result["id"], receipt_result["time"]]
     update_spreadsheet(row)
 
 
