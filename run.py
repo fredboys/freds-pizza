@@ -260,16 +260,16 @@ def receipt(order, price):
     )
     print("Here is your receipt")
     print("\n123 Fred's Pizzas\nBig street\nLondon\n")
-    id = uuid.uuid4()
+    identity = str(uuid.uuid4())
     print("Order #")
-    print(id)
+    print(identity)
     print(order)
     print("£" + str(price))
     now = datetime.now()
     time = now.strftime("%H:%M:%S\n")
     print(time)
 
-    return {"id": id, "time": time}
+    return {"id": identity, "time": time}
 
 def update_spreadsheet(row):
     """
@@ -292,7 +292,7 @@ def main():
     name = user_name()
     number = user_number(name)
     receipt_result = receipt(order, price)
-    row = [name, number, pizza["name"], size["label"], quantity, dip, price, receipt_result["id"], receipt_result["time"]]
+    row = [name, number, pizza["name"], size["label"], quantity, dip, price, receipt_result["time"], receipt_result["id"]]
     update_spreadsheet(row)
 
 
