@@ -259,15 +259,17 @@ def receipt(order, price):
         "and will be ready for collection in 20 minutes!\n"
     )
     print("Here is your receipt")
-    print("\n123 Fred's Pizzas\nBig street\nLondon\n")
+    print("---------------------------------")
+    print("123 Fred's Pizzas\nBig street\nLondon\n")
     identity = str(uuid.uuid4())
     print("Order #")
     print(identity)
     print(order)
     print("£" + str(price))
     now = datetime.now()
-    time = now.strftime("%H:%M:%S\n")
+    time = now.strftime("%H:%M:%S")
     print(time)
+    print("---------------------------------\n")
 
     return {"id": identity, "time": time}
 
