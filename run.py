@@ -17,7 +17,6 @@ SHEET = GSPREAD_CLIENT.open('freds-pizza')
 orders_worksheet = SHEET.worksheet("orders")
 
 
-
 pizza_menu = {
     "1": {"name": "Margherita", "message": "lovely"},
     "2": {"name": "BBQ Chicken", "message": "amazing"},
@@ -32,6 +31,7 @@ size_price = {
     "M": {"pizza_size": "11 INCH", "price": 8, "label": "Medium"},
     "L": {"pizza_size": "13 INCH", "price": 11, "label": "Large"},
 }
+
 
 def welcome():
     """
@@ -54,6 +54,7 @@ def welcome():
             print("Make sure you either enetered Y or N\n")
             return welcome()
 
+
 def select_pizza():
     """
     Function to select the pizza
@@ -74,7 +75,8 @@ def select_pizza():
             sys.exit()
             break
         elif(user_input in pizza_menu):
-            print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
+            print("You have chosen our", pizza_menu[user_input]["message"],
+            pizza_menu[user_input]["name"], "\n")
             break
         else:
             print(
@@ -82,6 +84,7 @@ def select_pizza():
                 "Please enter number between 1-6 or E"
             )
     return pizza_menu[user_input]
+
 
 def select_size():
     """
@@ -111,6 +114,7 @@ def select_size():
 
     return size_price[user_size_input]
 
+
 def number_of_pizzas():
     """
     Function to select quantity of pizzas
@@ -135,6 +139,7 @@ def number_of_pizzas():
                 "Sorry this is invalid\n"
             )
     return user_quantity_input
+
 
 def add_dip():
     """
@@ -162,6 +167,7 @@ def add_dip():
 
     return user_dip_input
 
+
 def total_order(quantity, size, pizza, dip):
     """
     Function to display the order back to the customer
@@ -177,6 +183,7 @@ def total_order(quantity, size, pizza, dip):
     print(result)
     return result
 
+
 def total_cost(size, quantity, dip):
     """
     Function to calculate total cost
@@ -186,6 +193,7 @@ def total_cost(size, quantity, dip):
         total += 1
     print("Total cost: £", total)
     return total
+
 
 def confirm_order():
     """
@@ -207,6 +215,7 @@ def confirm_order():
 
     return user_confirm
 
+
 def user_name():
     """
     Function to collect user name
@@ -225,6 +234,7 @@ def user_name():
 
     return name
 
+
 def user_number(name):
     """
     Function to collect user number
@@ -242,6 +252,7 @@ def user_number(name):
             print("Try again\n")
 
     return number
+
 
 def receipt(order, price):
     """
@@ -267,11 +278,13 @@ def receipt(order, price):
 
     return {"id": identity, "time": time}
 
+
 def update_spreadsheet(row):
     """
     Function to update google worksheet with data obtained
     """
     orders_worksheet.append_row(row)
+
 
 def main():
     welcome()
