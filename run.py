@@ -62,11 +62,11 @@ def select_pizza():
     for index, pizza in pizza_menu.items():
         print(index, pizza["name"])
     print(
-            "\nPlease pick the corresponding number\n"
-            "to the pizza you wish to order.\n"
-            "If you've changed your mind,\n"
-            "press E to leave the shop.\n"
-        )
+        "\nPlease pick the corresponding number\n"
+        "to the pizza you wish to order.\n"
+        "If you've changed your mind,\n"
+        "press E to leave the shop.\n"
+    )
     while True:
         user_input = input("Enter number: \n")
         user_input = user_input.strip().lower()
@@ -80,7 +80,7 @@ def select_pizza():
         else:
             print(
                 "\nSorry this is invalid\n"
-                "Please enter number between 1-6 or E"
+                "Please enter number between 1-6 or E\n"
             )
     return pizza_menu[user_input]
 
