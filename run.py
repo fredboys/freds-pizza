@@ -44,7 +44,7 @@ def welcome():
         user_choice = input("Enter: \n")
         user_choice = user_choice.strip()
         if user_choice == "Y" or user_choice == "y":
-            print("\nLets get you the menu...")
+            print("\nLets get you the menu...\n")
             break
         elif user_choice == "N" or user_choice == "n":
             print("Hopefully see you next time!")
