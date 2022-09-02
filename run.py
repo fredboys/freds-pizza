@@ -41,7 +41,7 @@ def welcome():
     while True:
         print("Hola, Welcome to Fred's Pizzas!")
         print("Would you like to place and order? [Y]es or [N]o\n")
-        user_choice = input("Enter: ")
+        user_choice = input("Enter: \n")
         user_choice = user_choice.strip()
         if(user_choice == "Y" or user_choice == "y"):
             print("\nLets get you the menu...")
@@ -68,7 +68,7 @@ def select_pizza():
             "If you've changed your mind,\n"
             "press E to leave the shop.\n"
         )
-        user_input = input("Enter number: ")
+        user_input = input("Enter number: \n")
         user_input = user_input.strip().lower()
         if(user_input == "e"):
             print("We hope to see you another day!")
@@ -97,7 +97,7 @@ def select_size():
             "Enter either S or M OR L\n"
             "Press E to leave the shop.\n"
         )
-        user_size_input = input("Enter size: ")
+        user_size_input = input("Enter size: \n")
         user_size_input = user_size_input.strip().upper()
         if(user_size_input == "E"):
             print("We hope to see you soon again!")
@@ -148,7 +148,7 @@ def add_dip():
         print("\nWould you like to add a garlic dip for £1?")
         print("[Y]es or [N]o")
         print("Or press E to leave the shop\n")
-        user_dip_input = input("Enter: ")
+        user_dip_input = input("Enter: \n")
         user_dip_input = user_dip_input.strip().upper()
         if(user_dip_input == "Y"):
             print("\nLets add that to your order!")
@@ -200,7 +200,7 @@ def confirm_order():
     """
     print("\nTo confirm this order please select\n[Y]es or [N]o \n(No will restart the order)\n")
     while True:
-        user_confirm = input("Enter: ")
+        user_confirm = input("Enter: \n")
         user_confirm = user_confirm.strip().upper()
         if(user_confirm == "Y"):
             print("\nConfirmed! ")
@@ -221,7 +221,7 @@ def user_name():
     """
     while True:
         print("\nNow... lets take your details")
-        name = input("Enter your name: ").title()
+        name = input("Enter your name: \n").title()
         if(name.isalpha()):
             break
         else:
@@ -239,7 +239,7 @@ def user_number(name):
     Function to collect user number
     """
     while True:
-        number = input("Enter your 11 digit mobile number: ")
+        number = input("Enter your 11 digit mobile number: \n")
         if(number.isdigit() and len(number) == 11):
             print("\nThank you", name, "we will use", number, "to contact you \nif any problems\n")
             break
