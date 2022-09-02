@@ -135,7 +135,7 @@ def number_of_pizzas():
             break
         else:
             print(
-                "Sorry this is invalid\n"
+                "\nSorry this is invalid\n"
             )
     return user_quantity_input
 
@@ -209,7 +209,7 @@ def confirm_order():
             print("\nLets try ordering again...\nRestarting process...")
             break
         else:
-            print("That not quite right")
+            print("\nThat not quite right")
             print("Make sure you either enetered Y or N\n")
 
     return user_confirm
@@ -219,8 +219,8 @@ def user_name():
     """
     Function to collect user name
     """
+    print("\nNow... lets take your details\n")
     while True:
-        print("\nNow... lets take your details\n")
         name = input("Enter your first name: \n").title()
         if name.isalpha():
             break
@@ -248,7 +248,7 @@ def user_number(name):
                 "\nPlease make sure you entered your "
                 "number correctly"
             )
-            print("Try again\n")
+            print("Try again")
 
     return number
 
