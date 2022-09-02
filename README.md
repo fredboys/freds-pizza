@@ -8,7 +8,7 @@ This fully python written programme is run on a mock terminal.
 
 ![Am I responsive](/assets/am%20i%20responsive.PNG)
 
-Live app: [Fred's pizza](https://freds-pizza.herokuapp.com/)
+Live app: [Fred's pizza]()
 
 # Table of content
 
@@ -43,3 +43,16 @@ I used [lucid flowcharts](https://lucid.app/users/login#/login) to help design t
 The final programme may differ from the original flowchart displayed as development progresses
 
 ![Lucid flowchart](/assets/flow%20chart.PNG)
+
+# Deployment
+
+This project was developed through Gitpod, using Code Institue's mock terminal for Heroku and their way of linking to Google Sheet API.
+
+## Deploy from GitHub
+
+* Log into your GitHub repository
+* Click 'Settings' in the main Repository menu
+* Click 'Pages' from the left-hand side navigation menu
+* Within the Source section, click the "Branch" button and change from 'None' to 'Main'
+* The page should automatically refresh with a url displayed
+* Test the link by clicking on the url
