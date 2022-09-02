@@ -61,13 +61,13 @@ def select_pizza():
     """
     for index, pizza in pizza_menu.items():
         print(index, pizza["name"])
-    while True:
-        print(
+    print(
             "\nPlease pick the corresponding number\n"
             "to the pizza you wish to order.\n"
             "If you've changed your mind,\n"
             "press E to leave the shop.\n"
         )
+    while True:
         user_input = input("Enter number: \n")
         user_input = user_input.strip().lower()
         if user_input == "e":
