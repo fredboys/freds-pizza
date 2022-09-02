@@ -4,17 +4,19 @@ Fred's pizza is a popular family pizza restaurant that wants to expand their alr
 
 Therefore I have built a programme which allows the user to place an order online which gives Fred's pizza another avenue of making money.
 
-This fully python written programme is run on a moch terminal.
+This fully python written programme is run on a mock terminal.
 
-<!-- Picture of am i responsive -->
+![Am I responsive](/assets/am%20i%20responsive.PNG)
 
 Live app: [Fred's pizza](https://freds-pizza.herokuapp.com/)
 
-## Table of content
+# Table of content
 
-## User experience
+<!-- List of contents -->
 
-### User stories
+# User experience
+
+## User stories
 
 As a user 
 
@@ -32,4 +34,12 @@ As a user
 As the owner
 
 * I want to provide a simple and easy way of ordering online
-* I want a clear, easy to read spreadsheet of the data from the orders recieved 
+* I want a clear, easy to read spreadsheet of the data from the orders recieved
+
+# Flow chart
+
+I used [lucid flowcharts](https://lucid.app/users/login#/login) to help design the flow and outcomes of the project that the user while face depending on their decisions
+
+The final programme may differ from the original flowchart displayed as development progresses
+
+![Lucid flowchart](/assets/flow%20chart.PNG)
