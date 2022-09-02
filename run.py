@@ -79,7 +79,7 @@ def select_pizza():
             break
         else:
             print(
-                "Sorry this is invalid,"
+                "Sorry this is invalid\n"
                 "Please enter number between 1-6 or E"
             )
     return pizza_menu[user_input]
@@ -162,7 +162,7 @@ def add_dip():
             break
         else:
             print("\nThat not quite right")
-            print("Make sure you either enetered Y or N\n")
+            print("Make sure you either enetered Y or N")
 
     return user_dip_input
 
