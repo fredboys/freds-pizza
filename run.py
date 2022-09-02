@@ -162,7 +162,7 @@ def add_dip():
             break
         else:
             print("\nThat not quite right")
-            print("Make sure you either enetered Y or N")
+            print("Make sure you either enetered Y or N\n")
 
     return user_dip_input
 
