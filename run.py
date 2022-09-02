@@ -75,11 +75,11 @@ def select_pizza():
             sys.exit()
             break
         elif user_input in pizza_menu:
-            print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
+            print("\nYou have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
             break
         else:
             print(
-                "Sorry this is invalid\n"
+                "\nSorry this is invalid\n"
                 "Please enter number between 1-6 or E"
             )
     return pizza_menu[user_input]
