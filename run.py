@@ -108,7 +108,7 @@ def select_size():
             break
         else:
             print(
-                "Sorry this is invalid\n"
+                "Sorry this is invalid"
             )
 
     return size_price[user_size_input]
@@ -161,7 +161,7 @@ def add_dip():
             sys.exit()
             break
         else:
-            print("That not quite right")
+            print("\nThat not quite right")
             print("Make sure you either enetered Y or N\n")
 
     return user_dip_input
@@ -221,12 +221,12 @@ def user_name():
     """
     while True:
         print("\nNow... lets take your details")
-        name = input("Enter your name: \n").title()
+        name = input("Enter your first name: \n").title()
         if(name.isalpha()):
             break
         else:
             print(
-                "Please make sure you entered your "
+                "\nPlease make sure you entered your "
                 "name correctly"
             )
             print("Try again")
