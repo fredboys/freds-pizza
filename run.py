@@ -75,8 +75,7 @@ def select_pizza():
             sys.exit()
             break
         elif(user_input in pizza_menu):
-            print("You have chosen our", pizza_menu[user_input]["message"],
-            pizza_menu[user_input]["name"], "\n")
+            print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
             break
         else:
             print(
