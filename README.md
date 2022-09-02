@@ -1,31 +1,35 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Fred's Pizza
 
-Welcome fredboys,
+Fred's pizza is a popular family pizza restaurant that wants to expand their already successful business onto the online market. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Therefore I have built a programme which allows the user to place an order online which gives Fred's pizza another avenue of making money.
 
-## Reminders
+This fully python written programme is run on a moch terminal.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+<!-- Picture of am i responsive -->
 
-## Creating the Heroku app
+Live app: [Fred's pizza](https://freds-pizza.herokuapp.com/)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Table of content
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User experience
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### User stories
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+As a user 
 
-Connect your GitHub repository and deploy as normal.
+* I want to easily navigate my way through the programme to select my order
+* Follow a chronological order that makes sense to order my pizza
+* Tell me exactly what keys to enter and if I make a mistake, tell me what I done wrong
+* Have simple instruction to follow 
+* I want to know the prices of all options at every step not just at the end of the order
+* I want a selection and variety of pizzas
+* I want the options of ordering mutliple pizzas 
+* Give me options to re-start my order before confirming if I selected anything wrong
+* I want to know exactly how long it will take for my order to be made
+* I want to recieve a receipt of excatly what I ordered
 
-## Constraints
+As the owner
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+* I want to provide a simple and easy way of ordering online
+* I want a clear, easy to read spreadsheet of the data from the orders recieved 
