@@ -108,7 +108,7 @@ def select_size():
             break
         else:
             print(
-                "Sorry this is invalid"
+                "\nSorry this is invalid"
             )
 
     return size_price[user_size_input]
