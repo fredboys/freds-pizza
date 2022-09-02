@@ -40,7 +40,7 @@ def welcome():
     """
     while True:
         print("Hola, Welcome to Fred's Pizzas!")
-        print("Would you like to place and order? [Y]es or [N]o\n")
+        print("Would you like to place an order? [Y]es or [N]o\n")
         user_choice = input("Enter: \n")
         user_choice = user_choice.strip()
         if user_choice == "Y" or user_choice == "y":
@@ -210,7 +210,7 @@ def confirm_order():
             break
         else:
             print("\nThat not quite right")
-            print("Make sure you either enetered Y or N\n")
+            print("Make sure you either entered Y or N\n")
 
     return user_confirm
 
@@ -264,7 +264,7 @@ def receipt(order, price):
     )
     print("Here is your receipt")
     print("---------------------------------")
-    print("123 Fred's Pizzas\nBig street\nLondon\n")
+    print("Fred's Pizzas\n123 Big street\nLondon\n")
     identity = str(uuid.uuid4())
     print("Order #")
     print(identity)
