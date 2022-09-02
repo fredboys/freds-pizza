@@ -104,7 +104,7 @@ def select_size():
             sys.exit()
             break
         elif user_size_input in size_price:
-            print("You have chosen a size", size_price[user_size_input]["label"], size_price[user_size_input]["pizza_size"], "pizza\n")
+            print("\nYou have chosen a size", size_price[user_size_input]["label"], size_price[user_size_input]["pizza_size"], "pizza\n")
             break
         else:
             print(
@@ -131,7 +131,7 @@ def number_of_pizzas():
             sys.exit()
             break
         elif user_quantity_input >= str(1) and user_quantity_input <= str(6):
-            print("You have selected a quantity of", user_quantity_input)
+            print("\nYou have selected a quantity of", user_quantity_input)
             break
         else:
             print(
@@ -239,7 +239,7 @@ def user_number(name):
     Function to collect user number
     """
     while True:
-        number = input("Enter your 11 digit mobile number: \n")
+        number = input("\nEnter your 11 digit mobile number: \n")
         if number.isdigit() and len(number) == 11:
             print("\nThank you", name, "we will use", number, "to contact you \nif any problems\n")
             break
