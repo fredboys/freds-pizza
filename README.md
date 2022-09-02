@@ -146,7 +146,8 @@ Credit to [Jorgen Brattang](https://github.com/JorgenBrattang/daily-math) for th
 * Heroku will notify you that the app was successfully deployed with a button to view the app.
 * If you want to rebuild your app automatically you can also select the 'Enable Automatic Deploys' button which will then rebuild the app every time you push any changes.
 
-## Credits
+
+# Credits
 
 I used [Jorgen Brattang](https://github.com/JorgenBrattang/daily-math) for the description on how the deployment process of the API google sheet and Heroku went
 
