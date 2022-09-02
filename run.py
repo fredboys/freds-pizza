@@ -229,7 +229,7 @@ def user_name():
                 "\nPlease make sure you entered your "
                 "name correctly"
             )
-            print("Try again")
+            print("Try again\n")
 
     return name
 
