@@ -1,6 +1,6 @@
 from datetime import datetime
-import uuid # Taken fromthe webdev to generate random order number
-import sys # Allows user to exit system
+import uuid
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -47,8 +47,8 @@ def welcome():
             print("\nLets get you the menu...")
             break
         elif(user_choice == "N" or user_choice == "n"):
-                print("Hopefully see you next time!")
-                sys.exit()
+            print("Hopefully see you next time!")
+            sys.exit()
         else:
             print("That's not quite right")
             print("Make sure you either enetered Y or N\n")
@@ -81,7 +81,7 @@ def select_pizza():
                 "Sorry this is invalid,"
                 "Please enter number between 1-6 or E"
             )
-        return pizza_menu[user_input]
+    return pizza_menu[user_input]
 
 def select_size():
     """
@@ -134,7 +134,7 @@ def number_of_pizzas():
             print(
                 "Sorry this is invalid\n"
             )
-        return user_quantity_input
+    return user_quantity_input
 
 def add_dip():
     """
@@ -255,7 +255,7 @@ def receipt(order, price):
     print("Here is your receipt")
     print("---------------------------------")
     print("123 Fred's Pizzas\nBig street\nLondon\n")
-    identity = str(uuid.uuid4()) # Taken from webdev to generate random order number
+    identity = str(uuid.uuid4())
     print("Order #")
     print(identity)
     print(order)
