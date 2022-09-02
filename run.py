@@ -1,6 +1,6 @@
 from datetime import datetime
-import uuid
-import sys
+import uuid # Taken fromthe webdev to generate random order number
+import sys # Allows user to exit system
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -153,7 +153,7 @@ def add_dip():
             print("\nNo problem!")
             break
         elif(user_dip_input == "E"):
-            ("\nSo close to the best pizza in town. See you soon!")
+            print("\nSo close to the best pizza in town. See you soon!")
             sys.exit()
             break
         else:
@@ -255,7 +255,7 @@ def receipt(order, price):
     print("Here is your receipt")
     print("---------------------------------")
     print("123 Fred's Pizzas\nBig street\nLondon\n")
-    identity = str(uuid.uuid4())
+    identity = str(uuid.uuid4()) # Taken from webdev to generate random order number
     print("Order #")
     print(identity)
     print(order)
