@@ -35,7 +35,7 @@ size_price = {
 
 def welcome():
     """
-    Function to welcome the customer or 
+    Function to welcome the customer or
     leave if they dont want to order
     """
     while True:
@@ -81,8 +81,7 @@ def select_pizza():
                 "Sorry this is invalid,"
                 "Please enter number between 1-6 or E"
             )
-        
-    return pizza_menu[user_input]
+        return pizza_menu[user_input]
 
 def select_size():
     """
@@ -135,8 +134,7 @@ def number_of_pizzas():
             print(
                 "Sorry this is invalid\n"
             )
-            
-    return user_quantity_input
+        return user_quantity_input
 
 def add_dip():
     """
@@ -174,10 +172,8 @@ def total_order(quantity, size, pizza, dip):
         result += " pizza"
     else:
         result += " pizzas"
-    
     if(dip.lower() == "y"):
         result += " with dip"
-        
     print(result)
     return result
 
@@ -188,9 +184,7 @@ def total_cost(size, quantity, dip):
     total = size["price"] * int(quantity)
     if(dip == "y" or dip == "Y"):
         total += 1
-        
     print("Total cost: £", total)
-    
     return total
 
 def confirm_order():
@@ -211,7 +205,7 @@ def confirm_order():
             print("That not quite right")
             print("Make sure you either enetered Y or N\n")
 
-    return user_confirm 
+    return user_confirm
 
 def user_name():
     """
@@ -233,11 +227,11 @@ def user_name():
 
 def user_number(name):
     """
-    Function to collect user number 
+    Function to collect user number
     """
     while True:
         number = input("Enter your 11 digit mobile number: ")
-        if(number.isdigit() and len(number) == 11 ):
+        if(number.isdigit() and len(number) == 11):
             print("\nThank you", name, "we will use", number, "to contact you \nif any problems\n")
             break
         else:
