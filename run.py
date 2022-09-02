@@ -206,7 +206,7 @@ def confirm_order():
             print("\nConfirmed! ")
             break
         elif user_confirm == "N":
-            print("\nLets try ordering again...\nRestarting process...")
+            print("\nLets try ordering again...\n")
             break
         else:
             print("\nThat not quite right")
