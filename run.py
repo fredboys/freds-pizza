@@ -144,10 +144,10 @@ def add_dip():
     """
     Function allows user to add garlic dip to their order
     """
+    print("\nWould you like to add a garlic dip for £1?")
+    print("[Y]es or [N]o")
+    print("Or press E to leave the shop\n")
     while True:
-        print("\nWould you like to add a garlic dip for £1?")
-        print("[Y]es or [N]o")
-        print("Or press E to leave the shop\n")
         user_dip_input = input("Enter: \n")
         user_dip_input = user_dip_input.strip().upper()
         if user_dip_input == "Y":
