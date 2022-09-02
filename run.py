@@ -43,10 +43,10 @@ def welcome():
         print("Would you like to place and order? [Y]es or [N]o\n")
         user_choice = input("Enter: \n")
         user_choice = user_choice.strip()
-        if(user_choice == "Y" or user_choice == "y"):
+        if user_choice == "Y" or user_choice == "y":
             print("\nLets get you the menu...")
             break
-        elif(user_choice == "N" or user_choice == "n"):
+        elif user_choice == "N" or user_choice == "n":
             print("Hopefully see you next time!")
             sys.exit()
         else:
@@ -70,11 +70,11 @@ def select_pizza():
         )
         user_input = input("Enter number: \n")
         user_input = user_input.strip().lower()
-        if(user_input == "e"):
+        if user_input == "e":
             print("We hope to see you another day!")
             sys.exit()
             break
-        elif(user_input in pizza_menu):
+        elif user_input in pizza_menu:
             print("You have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
             break
         else:
@@ -99,11 +99,11 @@ def select_size():
         )
         user_size_input = input("Enter size: \n")
         user_size_input = user_size_input.strip().upper()
-        if(user_size_input == "E"):
+        if user_size_input == "E":
             print("We hope to see you soon again!")
             sys.exit()
             break
-        elif(user_size_input in size_price):
+        elif user_size_input in size_price:
             print("You have chosen a size", size_price[user_size_input]["label"], size_price[user_size_input]["pizza_size"], "pizza\n")
             break
         else:
@@ -126,11 +126,11 @@ def number_of_pizzas():
     while True:
         user_quantity_input = input("Enter quantity: \n")
         user_quantity_input = user_quantity_input.strip().lower()
-        if(user_quantity_input == "e"):
+        if user_quantity_input == "e":
             print("We hope to see you soon again!")
             sys.exit()
             break
-        elif(user_quantity_input >= str(1) and user_quantity_input <= str(6)):
+        elif user_quantity_input >= str(1) and user_quantity_input <= str(6):
             print("You have selected a quantity of", user_quantity_input)
             break
         else:
@@ -150,13 +150,13 @@ def add_dip():
         print("Or press E to leave the shop\n")
         user_dip_input = input("Enter: \n")
         user_dip_input = user_dip_input.strip().upper()
-        if(user_dip_input == "Y"):
+        if user_dip_input == "Y":
             print("\nLets add that to your order!")
             break
-        elif(user_dip_input == "N"):
+        elif user_dip_input == "N":
             print("\nNo problem!")
             break
-        elif(user_dip_input == "E"):
+        elif user_dip_input == "E":
             print("\nSo close to the best pizza in town. See you soon!")
             sys.exit()
             break
@@ -173,11 +173,11 @@ def total_order(quantity, size, pizza, dip):
     """
     print("\nYour order is....\n")
     result = quantity + " x " + size["label"] + " " + size["pizza_size"] + " " + pizza["name"]
-    if(quantity == str(1)):
+    if quantity == str(1):
         result += " pizza"
     else:
         result += " pizzas"
-    if(dip.lower() == "y"):
+    if dip.lower() == "y":
         result += " with dip"
     print(result)
     return result
@@ -188,7 +188,7 @@ def total_cost(size, quantity, dip):
     Function to calculate total cost
     """
     total = size["price"] * int(quantity)
-    if(dip == "y" or dip == "Y"):
+    if dip == "y" or dip == "Y":
         total += 1
     print("Total cost: £", total)
     return total
@@ -202,10 +202,10 @@ def confirm_order():
     while True:
         user_confirm = input("Enter: \n")
         user_confirm = user_confirm.strip().upper()
-        if(user_confirm == "Y"):
+        if user_confirm == "Y":
             print("\nConfirmed! ")
             break
-        elif(user_confirm == "N"):
+        elif user_confirm == "N":
             print("\nLets try ordering again...\nRestarting process...")
             break
         else:
@@ -222,7 +222,7 @@ def user_name():
     while True:
         print("\nNow... lets take your details")
         name = input("Enter your first name: \n").title()
-        if(name.isalpha()):
+        if name.isalpha():
             break
         else:
             print(
@@ -240,7 +240,7 @@ def user_number(name):
     """
     while True:
         number = input("Enter your 11 digit mobile number: \n")
-        if(number.isdigit() and len(number) == 11):
+        if number.isdigit() and len(number) == 11:
             print("\nThank you", name, "we will use", number, "to contact you \nif any problems\n")
             break
         else:
@@ -286,6 +286,10 @@ def update_spreadsheet(row):
 
 
 def main():
+    """
+    Main function, which includes
+    all functions to run the program
+    """
     welcome()
     while True:
         pizza = select_pizza()
@@ -295,7 +299,7 @@ def main():
         order = total_order(quantity, size, pizza, dip)
         price = total_cost(size, quantity, dip)
         is_confirmed = confirm_order()
-        if(is_confirmed.upper() == "Y"):
+        if is_confirmed.upper() == "Y":
             break
     name = user_name()
     number = user_number(name)
