@@ -220,7 +220,7 @@ def user_name():
     Function to collect user name
     """
     while True:
-        print("\nNow... lets take your details")
+        print("\nNow... lets take your details\n")
         name = input("Enter your first name: \n").title()
         if name.isalpha():
             break
