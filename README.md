@@ -46,9 +46,63 @@ The final programme may differ from the original flowchart displayed as developm
 
 # Features
 
-# Future features
+All inputs have error messages that informs the user that their input was incorrect and what they should enter
+
+* The user recieves a welcome message and an option if they would like to place an order
+
+![Welcome message](/assets/welcome.PNG)
+
+* The user then is able to see the menu
+* They can select which pizza they would like to order 
+
+![Menu](/assets/Menu.PNG)
+
+* The user then gets their pizza option written back to them
+* The user then can select which size pizza they would like
+
+![Size](/assets/size.PNG)
+
+* The user then gets their pizza size option written back to them
+* The user can then select how many pizzas they would like to order
+
+![Quantity](/assets/quantity%20ss.PNG)
+
+* The user then gets their pizza quantity option written back to them
+* The user can then select if they would like to add sip to their order
+
+![Dip](/assets/dip.PNG)
+
+* The user gets their entire order written back to them including the total cost
+* The user then has a choice to confirm their order or not and restart the order process
+
+![Confirm](/assets/confirm.PNG)
+
+* The user then is asked for their details including their first name and number
+
+![Details](/assets/details.PNG)
+
+* The user then recieves a thank you message from Fred's pizzas and how long it will take for it to be ready
+* The user is then presented with their receipt of the order which includes:
+    * Order number
+    * Order
+    * Total cost
+    * Time
+
+![Receipt](/assets/RECEIPT.PNG)
+
+* The user's data is then updated to the spreadsheet for the owner to see and start making their order
+
+![Spreadsheet](/assets/spreadsheet.PNG)
+
+## Future features
+
+* To allow the user to order multiple different pizzas at the same time
 
 # Data model
+
+I have based the model on functions used as the steps to request, validate and return data from the user. As each function is executed, return values are collated and confirmed back to the user before sending to the Google spreadsheet.
+
+The Google spreadsheet is used to recieve the data from the user and allow the owner to clearly read and understand what the user has ordered.
 
 # Technology used
 
@@ -69,9 +123,25 @@ The final programme may differ from the original flowchart displayed as developm
 
 # Testing
 
+I have manually tested thi sproject by doing the following:
+
+* Passed the code through a PEP8 linter and confirmed there are now no bugs at the time of this test
+* Given invalid inputs to all input choices and made sure they allow the user to carry on with their order
+* Tested in my local terminal and the Code Institute Heroku terminal
+
+<!--Picture of PEP8 with no errors-->
+
 # Bugs
 
+* The only bug I encountered when passing my code through the PEP8 was that some lines were too long
+
+![PEP8 errors](/assets/pep8.PNG)
+
+* To fix this issue I 
+
 # Unfixed bugs
+
+* There are no unfixed bugs at the time of the last testing
 
 # Deployment
 
