@@ -44,6 +44,35 @@ The final programme may differ from the original flowchart displayed as developm
 
 ![Lucid flowchart](/assets/flow%20chart.PNG)
 
+# Features
+
+# Future features
+
+# Data model
+
+# Technology used
+
+* Python to write my programme
+* JavaScript provided in the Code Institute template
+* CSS provided in the Code Institute template
+* HTML provided in the Code Institute template
+* Google sheets to store the information
+* [Heroku](https://dashboard.heroku.com/apps) to deploy the project
+* [Am I responsive](https://ui.dev/amiresponsive) to show a mock up of the terminals
+
+# Python libraries used
+
+* [Datetime](https://docs.python.org/3/library/datetime.html) to add the time to the receipt and spreadsheet of when the order was placed
+* [UUID](https://thewebdev.info/2021/10/24/how-to-create-a-guid-or-uuid-in-python/?fbclid=IwAR16O6f7oQc62Uo-lG0VW7wzm-_6GxAsuMkFnzIb-5_cKQlTXUveOWsXGgg) to generate a random code to use as an order number
+* [Sys](https://stackoverflow.com/questions/14639077/how-to-use-sys-exit-in-python) to allow the user to exit the function
+* [Gspread](https://docs.gspread.org/en/latest/) to link my google sheet for the owner to see the data of the orders 
+
+# Testing
+
+# Bugs
+
+# Unfixed bugs
+
 # Deployment
 
 This project was developed through Gitpod, using Code Institue's mock terminal for Heroku and their way of linking to Google Sheet API.
