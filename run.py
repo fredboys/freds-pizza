@@ -17,13 +17,25 @@ SHEET = GSPREAD_CLIENT.open('freds-pizza')
 orders_worksheet = SHEET.worksheet("orders")
 
 
+class PizzaMenu:
+    """
+    Pizza menu class type
+    """
+    def __init__(self, name, message):
+        self.name = name
+        self.message = message
+
+    def print(self):
+        return self.message + " " + self.name
+
+
 pizza_menu = {
-    "1": {"name": "Margherita", "message": "lovely"},
-    "2": {"name": "BBQ Chicken", "message": "amazing"},
-    "3": {"name": "Pepperoni", "message": "scrumptious"},
-    "4": {"name": "Hawaiian", "message": "delicious"},
-    "5": {"name": "Veggie", "message": "tasty"},
-    "6": {"name": "Meat Lover", "message": "unreal"},
+    "1": PizzaMenu("Margherita", "lovely"),
+    "2": PizzaMenu("BBQ Chicken", "amazing"),
+    "3": PizzaMenu("Pepperoni", "scrumptious"),
+    "4": PizzaMenu("Hawaiian", "delicious"),
+    "5": PizzaMenu("Veggie", "tasty"),
+    "6": PizzaMenu("Meat Lover", "unreal")
 }
 
 size_price = {
@@ -60,7 +72,7 @@ def select_pizza():
     Function to select the pizza
     """
     for index, pizza in pizza_menu.items():
-        print(index, pizza["name"])
+        print(index, pizza.name)
     print(
         "\nPlease pick the corresponding number\n"
         "to the pizza you wish to order.\n"
@@ -75,7 +87,10 @@ def select_pizza():
             sys.exit()
             break
         elif user_input in pizza_menu:
-            print("\nYou have chosen our", pizza_menu[user_input]["message"], pizza_menu[user_input]["name"], "\n")
+            print(
+                "\nYou have chosen our",
+                pizza_menu[user_input].print(), "\n"
+            )
             break
         else:
             print(
@@ -172,7 +187,7 @@ def total_order(quantity, size, pizza, dip):
     Function to display the order back to the customer
     """
     print("\nYour order is....\n")
-    result = quantity + " x " + size["label"] + " " + size["pizza_size"] + " " + pizza["name"]
+    result = quantity + " x " + size["label"] + " " + size["pizza_size"] + " " + pizza.name
     if quantity == str(1):
         result += " pizza"
     else:
@@ -304,7 +319,10 @@ def main():
     name = user_name()
     number = user_number(name)
     receipt_result = receipt(order, price)
-    row = [name, number, pizza["name"], size["label"], quantity, dip, price, receipt_result["time"], receipt_result["id"]]
+    row = [
+        name, number, pizza.name, size["label"], quantity, dip, price,
+        receipt_result["time"], receipt_result["id"]
+    ]
     update_spreadsheet(row)
 
 
