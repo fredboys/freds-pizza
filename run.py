@@ -36,8 +36,8 @@ class PizzaSize:
     """
     Pizza size class type
     """
-    def __init__(self, size, price, label):
-        self.size = size
+    def __init__(self, inch, price, label):
+        self.inch = inch
         self.price = price
         self.label = label
 
@@ -118,7 +118,7 @@ def select_size():
     Function to select the size
     """
     for index, size in size_price.items():
-        print(index, "-", size.label, "-", size.size, "-", "£", size.price)
+        print(index, "-", size.label, "-", size.inch, "-", "£", size.price)
     while True:
         print(
             "\nPlease select what size pizza you want.\n"
@@ -135,7 +135,7 @@ def select_size():
             print(
                 "\nYou have chosen a size",
                 size_price[user_size_input].label,
-                size_price[user_size_input].size,
+                size_price[user_size_input].inch,
                 "pizza\n"
             )
             break
@@ -205,7 +205,7 @@ def total_order(quantity, size, pizza, dip):
     Function to display the order back to the customer
     """
     print("\nYour order is....\n")
-    result = quantity + " x " + size.label + " " + size.size + " " + pizza.name
+    result = quantity + " x " + size.label + " " + size.inch + " " + pizza.name
     if quantity == str(1):
         result += " pizza"
     else:
