@@ -129,7 +129,7 @@ I have manually tested thi sproject by doing the following:
 * Given invalid inputs to all input choices and made sure they allow the user to carry on with their order
 * Tested in my local terminal and the Code Institute Heroku terminal
 
-<!--Picture of PEP8 with no errors-->
+![PEP8 No errors](/assets/testing.PNG)
 
 # Bugs
 
@@ -137,7 +137,7 @@ I have manually tested thi sproject by doing the following:
 
 ![PEP8 errors](/assets/pep8.PNG)
 
-* To fix this issue I 
+* To fix this issue I just changed the length of the line by making the code go over either 2 or 3 lines
 
 # Unfixed bugs
 
