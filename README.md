@@ -12,7 +12,27 @@ Live app: [Fred's pizza](https://freds-pizza.herokuapp.com/)
 
 # Table of content
 
-<!-- List of contents -->
+[User Experience](#user-experience)
+
+[Flow Chart](#flow-chart)
+
+[Features](#features)
+
+[Data Model](#data-model)
+
+[Technology used](#technology-used)
+
+[Python libraries used](#python-libraries-used)
+
+[Testing](#testing)
+
+[Bugs](#bugs)
+
+[Unfixed Bugs](#unfixed-bugs)
+
+[Deployment](#deployment)
+
+[Credits](#credits)
 
 # User experience
 
@@ -48,39 +68,47 @@ The final programme may differ from the original flowchart displayed as developm
 
 All inputs have error messages that informs the user that their input was incorrect and what they should enter
 
+### Welcome message
 * The user recieves a welcome message and an option if they would like to place an order
 
 ![Welcome message](/assets/welcome.PNG)
 
+### Menu
 * The user then is able to see the menu
 * They can select which pizza they would like to order 
 
 ![Menu](/assets/Menu.PNG)
 
+### Pizza size
 * The user then gets their pizza option written back to them
 * The user then can select which size pizza they would like
 
 ![Size](/assets/size.PNG)
 
+### Quantity
 * The user then gets their pizza size option written back to them
 * The user can then select how many pizzas they would like to order
 
 ![Quantity](/assets/quantity%20ss.PNG)
 
+### Dip
 * The user then gets their pizza quantity option written back to them
-* The user can then select if they would like to add sip to their order
+* The user can then select if they would like to add dip to their order
 
 ![Dip](/assets/dip.PNG)
 
+### Confirm order
 * The user gets their entire order written back to them including the total cost
 * The user then has a choice to confirm their order or not and restart the order process
 
 ![Confirm](/assets/confirm.PNG)
 
+### User details
 * The user then is asked for their details including their first name and number
 
 ![Details](/assets/details.PNG)
 
+### Receipt
 * The user then recieves a thank you message from Fred's pizzas and how long it will take for it to be ready
 * The user is then presented with their receipt of the order which includes:
     * Order number
@@ -90,6 +118,7 @@ All inputs have error messages that informs the user that their input was incorr
 
 ![Receipt](/assets/RECEIPT.PNG)
 
+### Google spreadsheet
 * The user's data is then updated to the spreadsheet for the owner to see and start making their order
 
 ![Spreadsheet](/assets/spreadsheet.PNG)
