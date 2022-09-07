@@ -26,7 +26,20 @@ class PizzaMenu:
         self.message = message
 
     def print(self):
+        """
+        Prints specific string for the selected pizza
+        """
         return self.message + " " + self.name
+
+
+class PizzaSize:
+    """
+    Pizza size class type
+    """
+    def __init__(self, size, price, label):
+        self.size = size
+        self.price = price
+        self.label = label
 
 
 pizza_menu = {
@@ -39,9 +52,9 @@ pizza_menu = {
 }
 
 size_price = {
-    "S": {"pizza_size": "9 INCH", "price": 5, "label": "Small"},
-    "M": {"pizza_size": "11 INCH", "price": 8, "label": "Medium"},
-    "L": {"pizza_size": "13 INCH", "price": 11, "label": "Large"},
+    "S": PizzaSize("9 INCH", 5, "Small"),
+    "M": PizzaSize("11 INCH", 8, "Medium"),
+    "L": PizzaSize("13 INCH", 11, "Large"),
 }
 
 
@@ -105,7 +118,7 @@ def select_size():
     Function to select the size
     """
     for index, size in size_price.items():
-        print(index, "-", size["label"], "-", size["pizza_size"], "-", "£", size["price"])
+        print(index, "-", size.label, "-", size.size, "-", "£", size.price)
     while True:
         print(
             "\nPlease select what size pizza you want.\n"
@@ -119,7 +132,12 @@ def select_size():
             sys.exit()
             break
         elif user_size_input in size_price:
-            print("\nYou have chosen a size", size_price[user_size_input]["label"], size_price[user_size_input]["pizza_size"], "pizza\n")
+            print(
+                "\nYou have chosen a size",
+                size_price[user_size_input].label,
+                size_price[user_size_input].size,
+                "pizza\n"
+            )
             break
         else:
             print(
@@ -187,7 +205,7 @@ def total_order(quantity, size, pizza, dip):
     Function to display the order back to the customer
     """
     print("\nYour order is....\n")
-    result = quantity + " x " + size["label"] + " " + size["pizza_size"] + " " + pizza.name
+    result = quantity + " x " + size.label + " " + size.size + " " + pizza.name
     if quantity == str(1):
         result += " pizza"
     else:
@@ -202,7 +220,7 @@ def total_cost(size, quantity, dip):
     """
     Function to calculate total cost
     """
-    total = size["price"] * int(quantity)
+    total = size.price * int(quantity)
     if dip == "y" or dip == "Y":
         total += 1
     print("Total cost: £", total)
@@ -213,7 +231,10 @@ def confirm_order():
     """
     Function to confirm order
     """
-    print("\nTo confirm this order please select\n[Y]es or [N]o \n(No will restart the order)\n")
+    print(
+        "\nTo confirm this order please select\n"
+        "[Y]es or [N]o \n(No will restart the order)\n"
+    )
     while True:
         user_confirm = input("Enter: \n")
         user_confirm = user_confirm.strip().upper()
@@ -256,7 +277,13 @@ def user_number(name):
     while True:
         number = input("\nEnter your 11 digit mobile number: \n")
         if number.isdigit() and len(number) == 11:
-            print("\nThank you", name, "we will use", number, "to contact you \nif any problems\n")
+            print(
+                "\nThank you",
+                name,
+                "we will use",
+                number,
+                "to contact you \n"
+                "if any problems\n")
             break
         else:
             print(
@@ -320,7 +347,7 @@ def main():
     number = user_number(name)
     receipt_result = receipt(order, price)
     row = [
-        name, number, pizza.name, size["label"], quantity, dip, price,
+        name, number, pizza.name, size.label, quantity, dip, price,
         receipt_result["time"], receipt_result["id"]
     ]
     update_spreadsheet(row)
