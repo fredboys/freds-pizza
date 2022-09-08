@@ -63,16 +63,16 @@ def welcome():
     Function to welcome the customer or
     leave if they dont want to order
     """
+    print("Hello, Welcome to Fred's Pizzas!")
+    print("Would you like to place an order? [Y]es or [N]o\n")
     while True:
-        print("Hola, Welcome to Fred's Pizzas!")
-        print("Would you like to place an order? [Y]es or [N]o\n")
         user_choice = input("Enter: \n")
         user_choice = user_choice.strip()
         if user_choice == "Y" or user_choice == "y":
             print("\nLets get you the menu...\n")
             break
         elif user_choice == "N" or user_choice == "n":
-            print("Hopefully see you next time!")
+            print("\nHopefully see you next time!")
             sys.exit()
         else:
             print("That's not quite right")
@@ -96,7 +96,7 @@ def select_pizza():
         user_input = input("Enter number: \n")
         user_input = user_input.strip().lower()
         if user_input == "e":
-            print("We hope to see you another day!")
+            print("\nWe hope to see you another day!")
             sys.exit()
             break
         elif user_input in pizza_menu:
