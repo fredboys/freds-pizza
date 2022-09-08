@@ -245,7 +245,7 @@ def confirm_order():
             print("\nLets try ordering again...\n")
             break
         else:
-            print("\nThat not quite right")
+            print("\nThat's not quite right")
             print("Make sure you either entered Y or N\n")
 
     return user_confirm
